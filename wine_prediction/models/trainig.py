@@ -1,6 +1,7 @@
 import json
 import pickle
 
+import sklearn
 import click
 from loguru import logger
 from sklearn.datasets import load_wine

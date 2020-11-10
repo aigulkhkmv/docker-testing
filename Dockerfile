@@ -8,11 +8,14 @@ WORKDIR /code
 COPY pyproject.toml .
 
 # install poetry into image
-RUN pip install poetry
+RUN pip3 install poetry==1.0.0
+RUN poetry -V
 
 # install dependencies
+RUN ls
 RUN poetry install
 
 # copy the content
-COPY wine_prediction/ .
-COPY models/ .
+COPY wine_prediction/models .
+
+ENTRYPOINT poetry run python3 /code/trainig.py
